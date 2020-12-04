@@ -1,0 +1,2 @@
+<task noMoreData='true' bind:taskclick='onTaskClick' bind:feedback='onFeedback' dataList='{{dataList}}'>
+</task>

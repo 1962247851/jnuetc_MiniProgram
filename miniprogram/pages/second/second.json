@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"task": "/components/task/task"
+	},
+	"enablePullDownRefresh": true
+}

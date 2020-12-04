@@ -1,0 +1,24 @@
+/**
+ * 将图片字段解析为list
+ * @param photoJsonString photoJsonString 
+ */
+function parsePhotoList(photoJsonString) {
+  if (photoJsonString === null || photoJsonString === '') {
+    return null
+  }
+  return JSON.parse(photoJsonString)
+}
+
+/**
+ * 获取图片绝对路径
+ * @param uuid uuid
+ * @param suffix  后缀
+ */
+function getFullPicturePath(uuid, suffix) {
+  return 'https://api.jiangnan-etc.site:444/file/download?path=/opt/dataDP/&fileName=' + uuid + suffix;
+}
+
+module.exports = {
+  parsePhotoList: parsePhotoList,
+  getFullPicturePath: getFullPicturePath
+}

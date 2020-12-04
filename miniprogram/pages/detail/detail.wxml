@@ -1,0 +1,67 @@
+<!-- pages/detail/detail.wxml -->
+<view class='detail'>
+  报修人：<text class='text-label'>{{selectedTask.name}}</text>
+  报修时间：<text class='text-label'>{{selectedTask.date}}</text>
+  学院：<text class='text-label'>{{selectedTask.college}}</text>
+  年级：<text class='text-label'>{{selectedTask.grade}}</text>
+  电话：<text selectable='true' class='text-label'>{{selectedTask.tel}}</text>
+  QQ：<text selectable='true' class='text-label'>{{selectedTask.qq}}</text>
+  设备型号：<text selectable='true' class='text-label'>{{selectedTask.model}}</text>
+  故障详情：<text class='text-label'>{{selectedTask.message}}</text>
+  <wxs src='./detail.wxs' module="detail" />
+  <view wx:if="{{detail.parsePhotoList(selectedTask.photo)!=null}}">
+    故障图片：
+    <view class="text-label">
+      <image wx:for="{{detail.parsePhotoList(selectedTask.photo)}}" wx:key="item" class="photo" mode="aspectFill"
+        src="{{detail.getFullPicturePath(selectedTask.uuid,item)}}" data-index="{{index}}" bindtap="onClickImg" />
+    </view>
+  </view>
+  <form wx:if="{{selectedTask.state==0}}" bindsubmit='onOrderClick' report-submit>
+    <button class='button-confirm' form-type='submit' disabled='{{loading}}' type='primary' loading='{{loading}}'>
+      接单
+    </button>
+  </form>
+  <block wx:else>
+    <block wx:if="{{selectedTask.state == 1}}">
+      <block wx:if="{{avlible}}">
+        维修人:
+        <input placeholder='维修人' maxlength='20' class='text-label' bindinput='onRepairerChange'
+          value='{{ selectedTask.repairer }}'></input>
+        对用户电脑水平的评估：
+        <picker class='text-label' range='{{marks}}' value='{{index1}}' bindchange='onMarkChanged'>
+          {{marks[index1]}}
+        </picker>
+        服务内容：
+        <picker range='{{services}}' class='text-label' value='{{index2}}' bindchange='onServiceChanged'>
+          {{services[index2]}}
+        </picker>
+        故障描述及解决过程：
+        <textarea maxlength='1000' class='text-label' bindinput='onRepairMessageChange'
+          placeholder='故障描述及解决过程'></textarea>
+
+        <form bindsubmit='onFeedback' report-submit>
+          <button class='button-confirm' form-type='submit' disabled='{{loading}}' type='primary' loading='{{loading}}'>
+            提交反馈
+          </button>
+        </form>
+        <form bindsubmit='onMakeOver' report-submit>
+          <button class='button-confirm' form-type='submit' disabled='{{loading}}'>
+            转让
+          </button>
+        </form>
+      </block>
+      <block wx:else>
+        处理人：<text class='text-label'>{{selectedTask.repairer}}</text>
+        接单时间：<text class='text-label'>{{selectedTask.orderDate}}</text>
+      </block>
+    </block>
+    <block wx:else>
+      维修人：<text class='text-label'>{{selectedTask.repairer}}</text>
+      接单时间：<text class='text-label'>{{selectedTask.orderDate}}</text>
+      反馈时间：<text class='text-label'>{{selectedTask.repairDate}}</text>
+      对用户电脑水平评估：<text class='text-label'>{{selectedTask.mark}}</text>
+      服务内容：<text class='text-label'>{{selectedTask.service}}</text>
+      问题描述及维修过程：<text selectable='true' class='text-label'>{{selectedTask.repairMessage}}</text>
+    </block>
+  </block>
+</view>

@@ -1,0 +1,25 @@
+<view class='search-view'>
+  <input class='search-input' confirm-type='search' placeholder="在当前页面搜索" bindinput='onSearchInput'
+    bindconfirm='onSearch'></input>
+</view>
+<view class='item-parent'>
+  <text wx:for='{{titles}}' wx:key='index' class='title-item'
+    style='color:{{current == index ? selectindicatorcolor : normalindicatorcolor}}' catchtap='taptab'
+    data-index='{{index}}'>{{item}}</text>
+</view>
+<swiper current='{{current}}' style='height:{{contentheight}}px' bindchange="bindChange">
+  <swiper-item>
+    <scroll-view style='height:100%' scroll-y bindscrolltolower='onReachBottomSwiper'>
+      <task isAdmin='{{user.rootLevel >= 2}}' checked='{{checked1}}' bind:ondelete='onDelete1'
+        bind:onchecked='onChecked1' noMoreData='{{noMoreData1}}' bind:taskclick='onTaskClick'
+        dataList='{{dataListTemp1}}'></task>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view style='height:100%' scroll-y bindscrolltolower='onReachBottomSwiper'>
+      <task isAdmin='{{user.rootLevel >= 2}}' checked='{{checked2}}' bind:ondelete='onDelete2'
+        bind:onchecked='onChecked2' noMoreData='{{noMoreData2}}' bind:taskclick='onTaskClick'
+        dataList='{{dataListTemp2}}'></task>
+    </scroll-view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,10 @@
+.button-confirm {
+	width: 100%
+}
+
+.photo {
+	border: 0.05rem solid lightgray;
+	margin: 0.25rem;
+	width: 5rem;
+	height: 5rem;
+}

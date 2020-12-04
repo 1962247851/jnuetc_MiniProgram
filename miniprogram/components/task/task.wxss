@@ -1,0 +1,68 @@
+.task-card {
+  align-items: center;
+  display: flex;
+  width: initial;
+  margin: 30rpx;
+  padding: 20rpx;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: gray;
+  border-radius: 10px;
+  -webkit-box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.task-text {
+  width: 100%;
+}
+
+.text-message {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.text-model {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+}
+
+.button {
+  margin-top: 5px;
+  font-size: 15px;
+  /* width: fit-content; */
+  width: 100%;
+  /* display: -webkit-box; */
+}
+
+.empty-tip {
+  position: fixed;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*垂直居中*/
+  justify-content: center; /*水平居中*/
+}
+
+.no-more-data {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.task-cark-pressed {
+  background: gray;
+  margin: 30rpx;
+  padding: 20rpx;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 10px;
+}

@@ -1,0 +1,8 @@
+<view class='detail'>
+
+  <view>
+    报修开关
+    <switch disabled='{{ loading }}' checked='{{ service == null ? true : service}}' bindchange='onSwitchChange'></switch>
+  </view>
+
+</view>

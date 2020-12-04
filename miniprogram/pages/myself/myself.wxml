@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{user == null}}">
+      <text>登录后您可以接单和查看自己的历史接单</text>
+      <input class='text-label' type="number" focus='true' bindinput='onTextChange1' maxlength='10'
+        placeholder='请输入学号'></input>
+      <input password='true' class='text-label' bindinput='onTextChange2' maxlength='20' placeholder='请输入密码'></input>
+      <button type='primary'
+        disabled='{{inputString1 == null || inputString1 == "" || inputString2 == null || inputString2 == ""}}'
+        catchtap='getUserInfo'>
+        立即登录
+      </button>
+    </block>
+    <block wx:else>
+      <text>与你相识的第{{days+1}}天\n\n\n\n</text>
+      <view>
+        <text
+          catchtap='onDoneClick'>{{ dataListDone.length == null ?'':dataListDone.length == 0 ? '无已维修记录\n\n' : '累计维修'+dataListDone.length+'单 >\n\n'}}</text>
+        <text
+          catchtap='onProcessingClick'>{{dataListProcessing.length != null ? dataListProcessing.length == 0 ? '' : '还有'+ dataListProcessing.length+'个正在处理 >' : ''}}</text>
+        <navigator class='admin' wx-if='{{ user.rootLevel >= 2 }}' url='/pages/admin/admin'>
+          <text>控制台</text>
+        </navigator>
+        <text class='logout' catchtap="onLogoutClick">退出登录</text>
+      </view>
+    </block>
+  </view>
+</view>

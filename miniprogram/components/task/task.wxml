@@ -1,0 +1,50 @@
+<!--components/task/task.wxml-->
+<block wx:if='{{ dataList != null && dataList.length !=0 }}'>
+  <view class='task-card' catchtap='onTaskClick' wx:for='{{dataList}}' wx:key='id' data-task='{{item}}'>
+    <checkbox wx:if='{{isAdmin}}' checked='{{checked}}' data-id='{{item.id}}' catchtap='onChecked'></checkbox>
+    <view class='task-text'>
+      <text type='cancel' style='color:red;font-size:13px;' wx:if='{{isAdmin && index == 0}}'
+        catchtap='onDeleteClick'>删除选中项</text>
+      <text class='text-model'>{{ item.local }}-{{ item.id }} {{ item.name }}</text>
+      <block wx:if='{{item.state != 2}}'>
+        <text>{{ item.state == 0 ? '' : item.repairer +' 处理中' }}</text>
+        <view wx:if="{{item.state==1}}">
+          接单时间：<text style='color:#666666'>{{ item.orderDate }}</text>
+        </view>
+        <view wx:else>
+          报修时间：<text style='color:#666666'>{{ item.date }}</text>
+        </view>
+        <view class='text-model'>
+          设备型号：<text style='color:#666666'>{{ item.model }}</text>
+        </view>
+        <view class='text-message'>
+          故障详情：<text style='color:#666666'>{{ item.message }}</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='text-model'>
+          维修人：<text style='color:#666666'>{{ item.repairer }}</text>
+        </view>
+        <view class='text-model'>
+          维修时间：<text style='color:#666666'>{{ item.repairDate }}</text>
+        </view>
+        <view class='text-model'>
+          设备型号：<text style='color:#666666'>{{ item.model }}</text>
+        </view>
+        <view class='text-message'>
+          故障详情：<text style='color:#666666'>{{ item.message }}</text>
+        </view>
+        <view class='text-message'>
+          问题描述及维修过程：<text style='color:#666666'>{{ item.repairMessage }}</text>
+        </view>
+      </block>
+    </view>
+
+  </view>
+  <view wx:if='{{noMoreData || dataList.length < 10}}' class='no-more-data'>没有更多数据了
+  </view>
+  <view wx:else class='no-more-data'>
+    加载中...
+  </view>
+</block>
+<text wx:else class='empty-tip'>暂无数据</text>

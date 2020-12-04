@@ -1,0 +1,41 @@
+{
+	"pages": [
+		"pages/tasks/tasks",
+		"pages/second/second",
+		"pages/myself/myself",
+		"pages/detail/detail",
+		"pages/history/history",
+		"pages/admin/admin"
+	],
+	"window": {
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#008EFA",
+		"navigationBarTitleText": "JNUETC",
+		"navigationBarTextStyle": "white"
+	},
+	"sitemapLocation": "sitemap.json",
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#008EFA",
+		"list": [
+			{
+				"pagePath": "pages/tasks/tasks",
+				"text": "待处理",
+				"iconPath": "src/images/index_un.png",
+				"selectedIconPath": "src/images/index.png"
+			},
+			{
+				"pagePath": "pages/second/second",
+				"text": "已处理",
+				"iconPath": "src/images/done_un.png",
+				"selectedIconPath": "src/images/done.png"
+			},
+			{
+				"pagePath": "pages/myself/myself",
+				"text": "我的",
+				"iconPath": "src/images/myself_un.png",
+				"selectedIconPath": "src/images/myself.png"
+			}
+		]
+	}
+}

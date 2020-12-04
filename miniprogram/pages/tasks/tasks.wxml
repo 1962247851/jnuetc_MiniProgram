@@ -1,0 +1,7 @@
+<view class='search-view'>
+  <input class='search-input' confirm-type='search' placeholder="{{placeholder}}" bindinput='onSearchInput'
+    bindconfirm='onSearch'></input>
+</view>
+<task isAdmin='{{user.rootLevel >= 2}}' checked='{{checked}}' bind:ondelete='onDelete' bind:onchecked='onChecked'
+  noMoreData='{{noMoreData}}' loading='{{loading}}' bind:taskclick='onTaskClick' dataList='{{dataListTemp}}'>
+</task>

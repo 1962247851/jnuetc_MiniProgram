@@ -1,0 +1,23 @@
+/* pages/second/second.wxss */
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-parent {
+  display: flex;
+  flex-direction: row;
+  background-color: #eeeeee;
+}
+
+.title-item {
+  justify-content: center;
+  text-align: center;
+  width: 350rpx;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 17px;
+}
